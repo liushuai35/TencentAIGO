@@ -1,0 +1,39 @@
+# 优化版生成式推荐系统配置文件
+
+# 模型配置
+model:
+  hidden_units: 64
+  num_blocks: 2
+  num_heads: 2
+  dropout_rate: 0.2
+  norm_first: true
+  max_seq_length: 101
+
+# 训练配置
+training:
+  batch_size: 128
+  num_epochs: 10
+  learning_rate: 0.001
+  optimizer: "adam"
+  weight_decay: 0.01
+  lr_scheduler: "cosine"
+  gradient_clip: 1.0
+  l2_emb: 0.0
+  
+# 数据配置
+data:
+  num_workers: 4
+  multimodal_features: ["81", "82"]
+  
+# 系统配置
+system:
+  device: "cuda"
+  seed: 42
+  save_frequency: 5
+  
+# 路径配置
+paths:
+  data_path: "./data"
+  log_path: "./logs"
+  tensorboard_path: "./tb_logs"
+  checkpoint_path: "./checkpoints"
